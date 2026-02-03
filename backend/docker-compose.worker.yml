@@ -1,0 +1,99 @@
+services:
+  # 1. RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+    networks:
+      - teamA-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Celery Worker
+  celery:
+    build: .
+    container_name: celery
+    command: celery -A config worker --loglevel=info
+    env_file: .env.production
+    depends_on:
+      - rabbitmq
+    networks:
+      - teamA-network
+    restart: always
+
+  # 3. Celery Beat
+  celery-beat:
+    build: .
+    container_name: celery-beat
+    command: celery -A config beat --loglevel=info
+    env_file: .env.production
+    depends_on:
+      - rabbitmq
+    networks:
+      - teamA-network
+    restart: always
+
+  # 4. Celery Exporter - ARM64 아키텍처 호환 이슈로 비활성화
+  # QEMU 에뮬레이션이 제대로 작동하지 않아 AMD64 이미지 실행 불가
+  # Celery 모니터링은 Flower 또는 로그로 대체
+  # celery-exporter:
+  #   image: danihodovic/celery-exporter:latest
+  #   platform: linux/amd64
+  #   container_name: celery-exporter
+  #   environment:
+  #     - CELERY_EXPORTER_BROKER_URL=amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672//
+  #   ports:
+  #     - "9808:9808"
+  #   depends_on:
+  #     - rabbitmq
+  #   networks:
+  #     - teamA-network
+  #   restart: always
+
+  # 5. Alloy (로그 수집기)
+  alloy:
+    image: grafana/alloy:latest
+    container_name: alloy-worker
+    volumes:
+      - ./monitoring/worker-config.alloy:/etc/alloy/config.alloy
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+    networks:
+      - teamA-network
+    restart: always
+
+  # 6. cAdvisor (워커 컨테이너 모니터링)
+  cadvisor:
+      image: ghcr.io/google/cadvisor:0.56.2
+      container_name: cadvisor-worker
+      privileged: true
+      ports:
+        - "8081:8080" # 워커는 보통 8081 포트를 사용합니다.
+      volumes:
+        - /:/rootfs:ro
+        - /var/run:/var/run:ro
+        - /var/run/docker.sock:/var/run/docker.sock:ro # [추가] 워커 도커 소켓 연결
+        - /sys:/sys:ro
+        - /var/lib/docker/:/var/lib/docker:ro
+        - /dev/disk/:/dev/disk:ro # [추가] 디스크 정보
+      command:
+        - '--docker_only=true'    # [추가] 도커 컨테이너 수집에 집중
+        - '--housekeeping_interval=10s'
+        - '--store_container_labels=false'
+        - '--whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service'
+      networks:
+        - teamA-network
+      restart: always
+
+networks:
+  teamA-network:
+    driver: bridge

@@ -1,0 +1,81 @@
+# [Git]
+.git
+.gitignore
+
+# [Python Cache]
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
+**/.Python
+**/*.so
+
+# [Virtual Environment]
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# [Environment Variables] - 보안 및 환경별 설정을 위해 이미지에서는 제외
+.env
+.env.production
+.env.development
+.env.local
+.env.*.local
+
+# [Large Data & Analysis Files]
+# Posts.xml은 서버 로컬에 두고 볼륨으로 연결하므로 빌드 컨텍스트에서 반드시 제외
+Posts.xml
+out.csv
+*.xml
+*.jsonl
+*.csv.tmp
+
+# [Database & Persistence] - 호스트의 데이터가 이미지에 박히지 않도록 제외
+pgdata/
+redis-data/
+rabbitmq-data/
+db.sqlite3
+*.sql
+*.dump
+dump.rdb
+
+# [Media & Static] - Docker Volume으로 관리하므로 제외
+media/
+staticfiles/
+
+# [IDE & Editor]
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# [Docker]
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# [Monitoring]
+grafana-data/
+prometheus-data/
+loki-data/
+grafana.db
+
+# [Logs & Temp]
+logs/
+*.log
+tmp/
+temp/
+celerybeat-schedule
+celerybeat.pid
+
+# [Frontend/Node] - 백엔드 이미지 빌드 시 불필요
+node_modules/
+npm-debug.log
+.next/
+dist/
+build/
