@@ -1,10 +1,10 @@
 <div align="center">
 
-# <img src="./images/logo.png" height='30' width='30' style='position:relative; top: 4.5px;'> **DevRoad**
+# <img src="./docs/profile/images/logo.png" height='30' width='30' style='position:relative; top: 4.5px;'> **DevRoad**
 
 ### **채용 공고 및 이력서 기반 트렌드 분석 서비스** 
 <br><br>
-![DevRoad](./images/DevRoad-title.png)
+![DevRoad](./docs/profile/images/DevRoad-title.png)
 
 <br><br>
 💡 편하게 한눈에 IT 트렌드를 확인하세요
@@ -69,7 +69,7 @@
 
 > DevRoad의 서비스 흐름을 보여줍니다.
 
-<img src="./images/onbp_final.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="./docs/profile/images/onbp_final.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 
 
@@ -77,7 +77,7 @@
 
 > 언급량이 높은 기술과 추천 채용 공고 및 즐겨찾기된 기업의 채용 공고를 확인할 수 있습니다.
 
-<img src="./images/dashb.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="./docs/profile/images/dashb.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 
 
@@ -85,14 +85,14 @@
 
 > 채용 공고를 지도에서 위치와 함께 확인할 수 있습니다.
 
-<img src="./images/jobm.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<img src="./docs/profile/images/jobm.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
 
 ## Prepare Interview
 
 > 이력서를 업로드하고, 채용 공고별 분석 내용을 확인할 수 있습니다.
 
-<img src="./images/면접준비.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="./docs/profile/images/면접준비.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 
 
@@ -100,25 +100,25 @@
 
 > Google OAuth와 JWT를 활용해 소셜 로그인을 수행합니다.
 
-<img src="./images/Login.png" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-<img src="./images/Logout.png" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="./docs/profile/images/Login.png" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="./docs/profile/images/Logout.png" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 
 ## MyPage
 
 > 업로드한 이력서와 기업 및 기술에 대한 즐겨찾기를 조회할 수 있습니다.
 
-<img src="./images/myp.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="./docs/profile/images/myp.gif" width="1000" height="541" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 
 <br><br>
 
 # 📗 API
 
-![API Documentation](./images/swagger-users.png)
-![API Documentation](./images/swagger-trends.png)
-![API Documentation](./images/swagger-job.png)
-![API Documentation](./images/swagger-resume.png)
+![API Documentation](./docs/profile/images/swagger-users.png)
+![API Documentation](./docs/profile/images/swagger-trends.png)
+![API Documentation](./docs/profile/images/swagger-job.png)
+![API Documentation](./docs/profile/images/swagger-resume.png)
 
 <a name="-system-architecture"></a>
 
@@ -126,15 +126,15 @@
 
 # 🛠️ System Architecture
 
-![System Architecture](./images/SA1.png)
-![System Architecture](./images/SA2.png)
+![System Architecture](./docs/profile/images/SA1.png)
+![System Architecture](./docs/profile/images/SA2.png)
 
 <br><br>
 
 # 🔑 ERD
 
 
-![Database ERD](./images/erd.png)
+![Database ERD](./docs/profile/images/erd.png)
 
 
 
@@ -235,22 +235,22 @@
     <td colspan="2" align="center"><b>cAdvisor/Loki</b></td>
   </tr>
   <tr>
-    <td><img src="./images/cadvisor.png" width="100%"></td>
-    <td><img src="./images/loki1.png" width="100%"></td>
+    <td><img src="./docs/profile/images/cadvisor.png" width="100%"></td>
+    <td><img src="./docs/profile/images/loki1.png" width="100%"></td>
   </tr> 
   <tr>
     <td colspan="2" align="center"><b>django</b></td>
   </tr>
   <tr>
-    <td><img src="./images/django.png" width="100%"></td>
-    <td><img src="./images/django2.png" width="100%"></td>
+    <td><img src="./docs/profile/images/django.png" width="100%"></td>
+    <td><img src="./docs/profile/images/django2.png" width="100%"></td>
   </tr>   
   <tr>
     <td colspan="2" align="center"><b>CloudWatch</b></td>
   </tr>
   <tr>
-    <td><img src="./images/cloudw1.png" width="100%"></td>
-    <td><img src="./images/cloudw2.png" width="100%"></td>
+    <td><img src="./docs/profile/images/cloudw1.png" width="100%"></td>
+    <td><img src="./docs/profile/images/cloudw2.png" width="100%"></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><b></b></td>
@@ -387,7 +387,7 @@ HOST_API=
 
 |            | 김재범 | 김희영 | 문재혁 | 박승철 | 김도영 | 김준성 |
 |------------|:------:|:------:|:------:|:------:|:------:|:------:|
-| **Profile** | <img src="./images/김재범.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./images/김희영.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./images/문재혁.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./images/박승철.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./images/김도영.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./images/김준성.png" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> |
+| **Profile** | <img src="./docs/profile/images/김재범.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./docs/profile/images/김희영.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./docs/profile/images/문재혁.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./docs/profile/images/박승철.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./docs/profile/images/김도영.jpg" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> | <img src="./docs/profile/images/김준성.png" width="130" height="130" style="border-radius: 50%; object-fit: cover;"> |
 | **Role**    | Leader<br>Backend<br>DevOps | Backend<br>DevOps | Backend<br>DevOps | Backend<br>DevOps | Frontend | Frontend |
 | **GitHub**  | [@jaebeom79](https://github.com/jaebeom79) | [@heeyoungis](https://github.com/heeyoungis) | [@munjaehyeok](https://github.com/munjaehyeok) | [@gumtiket](https://github.com/gumtiket) | [@kimdoyoung1110](https://github.com/kimdoyoung1110) | [@newplayerkim](https://github.com/newplayerkim) |
 
