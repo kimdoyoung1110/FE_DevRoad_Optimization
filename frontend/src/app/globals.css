@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 기본 스타일 */
+html {
+  font-size: 17px;
+}
+
+body {
+  font-family: 'Pretendard', system-ui, sans-serif;
+  background-color: #1A1B1E;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
+
+@layer utilities {
+  /* 스크롤바 숨기기 유틸리티 */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* 스크롤할 때만 보이는 스크롤바 */
+  .auto-hide-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.3s ease;
+  }
+
+  .auto-hide-scrollbar:hover {
+    scrollbar-color: rgba(64, 64, 64, 0.5) transparent;
+  }
+
+  .auto-hide-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .auto-hide-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .auto-hide-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+
+  .auto-hide-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: rgba(64, 64, 64, 0.5);
+  }
+
+  .auto-hide-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(80, 80, 80, 0.7);
+  }
+}
+/* ✅ global.css 또는 별도 스타일 시트에 추가 */
+
+.flowing-line {
+  /* GPU 가속을 강제하여 CPU 부하를 줄입니다. */
+  will-change: stroke-dashoffset, transform;
+  animation: flow 1.2s linear infinite;
+}
+
+@keyframes flow {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+svg {
+  /* 복잡한 연산 중에도 레이어를 분리하여 부드러움 유지 */
+  isolation: isolate; 
+  shape-rendering: optimizeSpeed; /* 정밀도보다 속도 우선 */
+}
+
+.node-circle {
+  /* 마우스 오버 시의 필터 효과 등이 CPU를 잡아먹지 않게 설정 */
+  contain: paint;
+}
