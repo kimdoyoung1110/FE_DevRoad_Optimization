@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, TrendingUp, Scale, ExternalLink, Star, Trophy, AlertCircle, Building2, FileText, RefreshCw } from "lucide-react"; 
-import TrendChart from "./TrendChart";
+import dynamic from "next/dynamic";
 import StackComparison, { StackData } from "./Comparison";
 import StackRelationAnalysis from "./RelationAnalysis";
 import JobSection from "./JobSection";
@@ -15,7 +15,18 @@ import LoginModal from "@/components/LoginModal";
 
 import { getTechStackRelations, getTechStackById, RelatedTechStackRelation, getExternalLogoUrl, fetchTop5ByTrends, TopTechStackItem, fetchTechTrends, TechTrendChartItem } from "@/services/trendService";
 import { TechStackData } from "@/types/trend";
-import type { ChartPeriod } from "./TrendChart";
+import type { ChartPeriod, TrendChartDataItem } from "./TrendChart";
+
+// 
+const TrendChart = dynamic(() => import("./TrendChart"), {
+    ssr: false,
+    loading: () => (
+        <div className="w-full h-full flex items-center justify-center">
+            <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+    ),
+});
+
 
 // 커스텀 노드 아이콘
 const NetworkIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
